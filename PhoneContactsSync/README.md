@@ -4,8 +4,15 @@ This script is a take on the phone contact update scripts that exist elsewhere, 
 
 **Important**
 
-Set up a new Enterprise Application in Microsoft Entra Admin Center before trying to run the script.
-The script uses the old method of establishing a Graph API connection, based on Tenant ID, Application ID and Application Secret. 
+Set up a new Enterprise Application in Microsoft Entra Admin Center before trying to run the script. Then assign sufficient permissions to the application, such as User.Read.All and Contacts.ReadWrite. *Read below for an alternate method.*
+
+As it is now, the script uses the old method of establishing a Graph API connection, based on Tenant ID, Application ID and Application Secret. 
+
+Alternatively, you can replace everything from line 133 until 149 with a simple 
+```
+Connect-MgGraph -Scopes "User.Read.All", "Contacts.ReadWrite.All"
+```
+and sign in with an account with enough rights to read-write user's contacts. If you use this method, you don't need an Enterprise Application set up beforehand.
 
 ### How it works
 
