@@ -131,8 +131,8 @@ function Get-Contacts {
 }
 
 $tenantId = Read-Host -Prompt "Tenant ID"
-$clientId = Read-Host -Prompt "App Client ID"
-$secretId = Read-Host -AsSecureString -Prompt "Secret ID"
+$clientId = Read-Host -Prompt "Application ID"
+$secretId = Read-Host -AsSecureString -Prompt "Application Secret ID"
 $autosyncFolderName = Read-Host -Prompt "Contacts folder name"
 
 $MsalToken = Get-MsalToken -TenantId $TenantId -ClientId $clientId -ClientSecret $secretId
